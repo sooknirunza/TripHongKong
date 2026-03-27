@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip Hong Kong · 28–30 March 2026</title>
+<style>
+  /* ── Base Reset & Variables ─────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #1A2F5A;
+    --navy2:   #243C70;
+    --red:     #E8304A;
+    --blue:    #4A90D9;
+    --blue2:   #6AAEE8;
+    --gold:    #D4A539;
+    --pale:    #EBF3FB;
+    --pale2:   #F0F6FF;
+    --grey:    #F5F7FA;
+    --text:    #1C1C2E;
+    --muted:   #5A6A80;
+    --white:   #ffffff;
+    --border:  #DEE7F4;
+    --shadow:  0 4px 24px rgba(26,47,90,.10);
+    --radius:  12px;
+    --font: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: #f0f4f8;
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* ── Navigation ─────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; gap: 0;
+    padding: 0 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.25);
+  }
+  nav .logo {
+    font-size: 15px; font-weight: 700; color: #fff;
+    padding: 16px 0; margin-right: auto;
+    letter-spacing: .5px;
+  }
+  nav .logo span { color: var(--red); }
+  nav a {
+    color: rgba(255,255,255,.75); text-decoration: none;
+    font-size: 12px; font-weight: 600; letter-spacing: .5px;
+    padding: 20px 14px; text-transform: uppercase;
+    transition: color .2s, border-bottom .2s;
+    border-bottom: 3px solid transparent;
+  }
+  nav a:hover { color: #fff; border-bottom-color: var(--red); }
+
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero {
+    margin-top: 60px;
+    background: linear-gradient(135deg, var(--navy) 0%, #0f2040 40%, #1a3a6e 100%);
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--red); color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px; border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 800; color: #fff;
+    letter-spacing: -1px; line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--blue2); }
+  .hero p {
+    font-size: 16px; color: rgba(255,255,255,.7);
+    margin-bottom: 40px;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 16px;
+    flex-wrap: wrap; margin-top: 40px;
+  }
+  .hero-stat {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 10px;
+    padding: 16px 24px; text-align: center;
+    backdrop-filter: blur(8px);
+    min-width: 120px;
+  }
+  .hero-stat .num { font-size: 22px; font-weight: 800; color: #fff; display: block; }
+  .hero-stat .lbl { font-size: 11px; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ── Container ──────────────────────────────────────────────── */
+  .container { max-width: 1060px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* ── Section Titles ─────────────────────────────────────────── */
+  .section-title {
+    display: flex; align-items: center; gap: 12px;
+    margin: 48px 0 20px;
+  }
+  .section-title .icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .section-title h2 {
+    font-size: 22px; font-weight: 800; color: var(--navy);
+    letter-spacing: -.4px;
+  }
+  .section-title h2 small {
+    display: block; font-size: 13px; font-weight: 400; color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── Summary Cards ──────────────────────────────────────────── */
+  .day-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 640px) { .day-cards { grid-template-columns: 1fr; } }
+  .day-card {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden; transition: transform .2s;
+  }
+  .day-card:hover { transform: translateY(-4px); }
+  .day-card-header {
+    background: var(--navy); padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .day-num {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: var(--red); color: #fff;
+    font-size: 16px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .day-card-header h3 { color: #fff; font-size: 14px; font-weight: 700; }
+  .day-card-header p { color: rgba(255,255,255,.6); font-size: 11px; }
+  .day-card-body { padding: 16px 20px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── Budget Table ───────────────────────────────────────────── */
+  .budget-table {
+    width: 100%; border-collapse: collapse;
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow);
+  }
+  .budget-table thead tr { background: var(--navy); }
+  .budget-table thead th {
+    color: #fff; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    padding: 14px 18px; text-align: left;
+  }
+  .budget-table tbody tr { transition: background .15s; }
+  .budget-table tbody tr:nth-child(even) { background: var(--pale); }
+  .budget-table tbody tr:hover { background: #dbeaff; }
+  .budget-table tbody td { padding: 13px 18px; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--border); }
+  .budget-table tbody td:first-child { font-weight: 600; }
+  .budget-table .total-row td { background: var(--navy); color: #fff; font-weight: 700; font-size: 13px; border-bottom: none; }
+  .amount { font-variant-numeric: tabular-nums; }
+
+  /* ── Prepare Cards ──────────────────────────────────────────── */
+  .prepare-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 700px) { .prepare-grid { grid-template-columns: 1fr; } }
+  .prepare-card {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 24px;
+  }
+  .prepare-card h3 {
+    font-size: 14px; font-weight: 700; color: var(--navy);
+    margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--pale);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .prepare-item { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+  .prepare-item .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--red); flex-shrink: 0; margin-top: 7px;
+  }
+  .prepare-item strong { font-size: 13px; color: var(--navy); display: block; }
+  .prepare-item span { font-size: 12px; color: var(--muted); }
+
+  /* ── Disney Section ─────────────────────────────────────────── */
+  .disney-banner {
+    background: linear-gradient(135deg, #1a2f5a 0%, #2a4a8a 100%);
+    border-radius: var(--radius); padding: 32px;
+    margin-bottom: 20px; position: relative; overflow: hidden;
+  }
+  .disney-banner::after {
+    content: '🎡';
+    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+    font-size: 80px; opacity: .15;
+  }
+  .disney-banner h3 { color: #fff; font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+  .disney-banner p { color: rgba(255,255,255,.7); font-size: 13px; }
+
+  .checklist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (max-width: 600px) { .checklist-grid { grid-template-columns: 1fr; } }
+  .check-item {
+    background: var(--white); border-radius: 10px;
+    padding: 14px 16px;
+    display: flex; align-items: flex-start; gap: 10px;
+    box-shadow: var(--shadow);
+  }
+  .check-item .cb {
+    width: 22px; height: 22px; border-radius: 6px;
+    background: var(--blue); color: #fff;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .check-item.warn .cb { background: var(--red); }
+  .check-item strong { font-size: 13px; color: var(--navy); display: block; }
+  .check-item span { font-size: 12px; color: var(--muted); }
+
+  /* ── Schedule ───────────────────────────────────────────────── */
+  .day-schedule {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); overflow: hidden; margin-bottom: 32px;
+  }
+  .day-schedule-header {
+    background: var(--navy); padding: 20px 28px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .day-badge {
+    background: var(--red); color: #fff;
+    border-radius: 10px; padding: 8px 14px;
+    font-size: 11px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1px; text-align: center; flex-shrink: 0;
+    line-height: 1.2;
+  }
+  .day-badge .day-n { font-size: 20px; display: block; }
+  .day-schedule-header h3 { color: #fff; font-size: 17px; font-weight: 700; }
+  .day-schedule-header p { color: rgba(255,255,255,.6); font-size: 12px; margin-top: 3px; }
+
+  .timeline { padding: 0; }
+  .timeline-item {
+    display: flex; gap: 0;
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-item:hover { background: var(--pale2); }
+  .timeline-time {
+    min-width: 110px; padding: 18px 16px;
+    font-size: 12px; font-weight: 700; color: var(--navy);
+    background: var(--pale); border-right: 1px solid var(--border);
+    display: flex; align-items: flex-start;
+    flex-shrink: 0;
+  }
+  .timeline-content { padding: 16px 24px; flex: 1; }
+  .timeline-content p { font-size: 13px; color: var(--text); line-height: 1.65; white-space: pre-line; }
+  .timeline-content .tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .8px;
+    padding: 2px 8px; border-radius: 4px; margin-bottom: 6px;
+    background: var(--pale); color: var(--blue);
+  }
+  .timeline-content .tag.red { background: #fde8eb; color: var(--red); }
+  .timeline-content .tag.gold { background: #fef3d8; color: var(--gold); }
+
+  /* ── Hotel Card ─────────────────────────────────────────────── */
+  .hotel-card {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); overflow: hidden; margin-bottom: 32px;
+  }
+  .hotel-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1f4070 100%);
+    padding: 28px 32px; display: flex; align-items: center; gap: 20px;
+  }
+  .hotel-icon { font-size: 40px; }
+  .hotel-header h3 { color: #fff; font-size: 20px; font-weight: 800; }
+  .hotel-header p { color: rgba(255,255,255,.65); font-size: 13px; margin-top: 4px; }
+  .hotel-body { padding: 28px 32px; }
+  .hotel-details { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+  .hotel-detail-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .hotel-detail-item .icon { font-size: 18px; }
+  .hotel-detail-item strong { color: var(--navy); }
+  .hotel-detail-item span { color: var(--muted); }
+
+  /* ── Tips ───────────────────────────────────────────────────── */
+  .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 680px) { .tips-grid { grid-template-columns: 1fr; } }
+  .tip-card {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 20px;
+    border-left: 4px solid var(--blue);
+  }
+  .tip-card h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .tip-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* ── Footer ─────────────────────────────────────────────────── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,.5);
+    text-align: center; padding: 28px;
+    font-size: 12px;
+  }
+  footer strong { color: #fff; }
+
+  /* ── Print ──────────────────────────────────────────────────── */
+  @media print {
+    nav, .hero-stats { display: none; }
+    body { background: #fff; }
+    .day-schedule, .hotel-card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────── -->
+<nav>
+  <div class="logo">✈ Hong Kong <span>2026</span></div>
+  <a href="#overview">Overview</a>
+  <a href="#prepare">Prepare</a>
+  <a href="#hotel">Hotel</a>
+  <a href="#schedule">Schedule</a>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-tag">🇭🇰 Travel Guide</div>
+  <h1>Trip <span>Hong Kong</span></h1>
+  <p>28–30 March 2026 &nbsp;·&nbsp; 2 Adults &nbsp;·&nbsp; Tsim Sha Tsui Base</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num">3</span>
+      <span class="lbl">Days</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">1</span>
+      <span class="lbl">Temple Tour</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">🎡</span>
+      <span class="lbl">Disneyland</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">3</span>
+      <span class="lbl">Nights</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">15,429</span>
+      <span class="lbl">THB / Person</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main Container ──────────────────────────────────────── -->
+<div class="container">
+
+  <!-- ── Overview ──────────────────────────────────────────── -->
+  <div id="overview">
+    <div class="section-title">
+      <div class="icon">🗓</div>
+      <h2>Trip Overview <small>At a glance — what each day holds</small></h2>
+    </div>
+
+    <div class="day-cards">
+      <div class="day-card">
+        <div class="day-card-header">
+          <div class="day-num">1</div>
+          <div>
+            <h3>28 March — Arrival</h3>
+            <p>Temples & Night Eats</p>
+          </div>
+        </div>
+        <div class="day-card-body">
+          Arrive at HKG early morning · City Bus A21 to Tsim Sha Tsui · Check in & store luggage · Moo Hong Kong Temple Tour (10:00–16:00) · Ki's Roasted Goose for dinner · Egg Tarts at Bakehours · Heytea at K11 Art Mall
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-card-header">
+          <div class="day-num">2</div>
+          <div>
+            <h3>29 March — Disneyland ✨</h3>
+            <p>The Happiest Day!</p>
+          </div>
+        </div>
+        <div class="day-card-body">
+          Congee breakfast at Master Congee · Travel to HK Disneyland via MTR (40–50 min) · Full day at the park (10:00–21:00) · Enjoy rides, shows, Disney fireworks · Head back to hotel in the evening
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-card-header">
+          <div class="day-num">3</div>
+          <div>
+            <h3>30 March — Photo Walk</h3>
+            <p>Kennedy Town & Fly Home</p>
+          </div>
+        </div>
+        <div class="day-card-body">
+          Kai Kee Noodles · Pan-Fried Buns · Kennedy Town photo walk · % Arabica coffee · Winston's Coffee · Michelin Roast Goose (Yat Lok) · Peak Tram OR Choi Hung Estate · Airport → Fly home 23:40
+        </div>
+      </div>
+    </div>
+
+    <!-- Budget -->
+    <div class="section-title">
+      <div class="icon">💰</div>
+      <h2>Budget Summary <small>All amounts in Thai Baht (THB)</small></h2>
+    </div>
+
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Per Couple</th>
+          <th>Per Person</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>✈ Round-trip Airfare</td>
+          <td class="amount">15,635</td>
+          <td class="amount">7,817.50</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>🏨 Hotel (3 Nights)</td>
+          <td class="amount">3,579</td>
+          <td class="amount">1,790</td>
+          <td>Airy Stay on Carnarvon</td>
+        </tr>
+        <tr>
+          <td>🛕 Moo Temple Tour</td>
+          <td class="amount">2,988</td>
+          <td class="amount">5,976</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>🎡 Disneyland Ticket</td>
+          <td class="amount">5,668</td>
+          <td class="amount">2,834</td>
+          <td>Via Klook</td>
+        </tr>
+        <tr>
+          <td>🚇 Transportation (MTR/Taxi)</td>
+          <td>Self-estimate</td>
+          <td>—</td>
+          <td>~20–110 HKD per trip</td>
+        </tr>
+        <tr>
+          <td>🍜 Meals</td>
+          <td>Self-estimate</td>
+          <td>—</td>
+          <td>HKD 50–150 per meal/person</td>
+        </tr>
+        <tr>
+          <td>🛍 Shopping</td>
+          <td>Self-estimate</td>
+          <td>—</td>
+          <td>Budget as needed</td>
+        </tr>
+        <tr class="total-row">
+          <td>💰 TOTAL (Fixed Costs)</td>
+          <td class="amount">30,858</td>
+          <td class="amount">15,429</td>
+          <td>*Excludes transport, meals & shopping</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── What to Prepare ───────────────────────────────────── -->
+  <div id="prepare">
+    <div class="section-title">
+      <div class="icon">🎒</div>
+      <h2>What to Prepare <small>Essential checklist before you go</small></h2>
+    </div>
+
+    <div class="prepare-grid">
+      <!-- Finance -->
+      <div class="prepare-card">
+        <h3>💳 Finance & Payment</h3>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Octopus Card — Most Important!</strong>
+            <span>Works everywhere: MTR, buses, convenience stores, local restaurants. Download "Octopus for Tourists" app and link to Apple Pay on iPhone. No physical card needed!</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Cash (HKD)</strong>
+            <span>Some small local restaurants are cash-only. Carry some just in case.</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Travel Card (YouTrip / Planet / SCB Planet)</strong>
+            <span>Better exchange rates than cash. Tap to pay at malls.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internet + Apps -->
+      <div class="prepare-card">
+        <h3>📱 Internet & Apps</h3>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>SIM / eSIM</strong>
+            <span>Buy before leaving Thailand (Sim2Fly or Travel Sim). Or buy CSL at HK Airport.</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>MTR Mobile</strong>
+            <span>Train routes and fares</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Hong Kong Disneyland App</strong>
+            <span>Real-time wait times, park map, show & fireworks schedules</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Google Maps</strong>
+            <span>Essential for navigating HK's many alleyways</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Citybus / HKTaxi</strong>
+            <span>Bus schedules or call a taxi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Power + Misc -->
+      <div class="prepare-card">
+        <h3>🔌 Power & Essentials</h3>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Type G Power Adapter</strong>
+            <span>Hong Kong uses UK-style 3-pin square plugs. Pack a Universal Adapter!</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Power Bank</strong>
+            <span>Essential for a full day at Disneyland or walking around</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Comfortable Shoes</strong>
+            <span>Expect 15,000–20,000+ steps on Disneyland day. Choose wisely!</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Compact Umbrella / Rain Jacket</strong>
+            <span>HK weather is unpredictable — can be sunny or rainy in the same day</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disney Tips -->
+      <div class="prepare-card">
+        <h3>🎡 Disneyland Pre-checks</h3>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Buy Tickets via Klook</strong>
+            <span>Purchase in advance for the best price</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Make Park Reservation</strong>
+            <span>Reserve your entry date online after purchasing tickets</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Empty Water Bottle</strong>
+            <span>Drinks inside are expensive. Refill free at Water Stations (usually near restrooms)</span>
+          </div>
+        </div>
+        <div class="prepare-item">
+          <div class="dot"></div>
+          <div>
+            <strong>Hat & Sunscreen</strong>
+            <span>Lots of outdoor time at the park</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disney Prohibited -->
+    <div class="disney-banner">
+      <h3>🚫 Disneyland Prohibited Items</h3>
+      <p>Leave these at the hotel to avoid problems at the entrance</p>
+    </div>
+    <div class="checklist-grid">
+      <div class="check-item warn">
+        <div class="cb">✗</div>
+        <div>
+          <strong>Selfie Stick / Camera Tripod</strong>
+          <span>Not permitted inside for safety reasons</span>
+        </div>
+      </div>
+      <div class="check-item warn">
+        <div class="cb">✗</div>
+        <div>
+          <strong>Oversized Bags (&gt;56×36×23 cm)</strong>
+          <span>Must be checked at luggage storage outside the park</span>
+        </div>
+      </div>
+      <div class="check-item warn">
+        <div class="cb">✗</div>
+        <div>
+          <strong>Full Meals / Packed Food</strong>
+          <span>Small snacks &amp; small water bottles OK, but no packed meals</span>
+        </div>
+      </div>
+      <div class="check-item warn">
+        <div class="cb">✗</div>
+        <div>
+          <strong>Alcoholic Beverages</strong>
+          <span>Alcohol is not permitted inside Hong Kong Disneyland</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Hotel ─────────────────────────────────────────────── -->
+  <div id="hotel">
+    <div class="section-title">
+      <div class="icon">🏨</div>
+      <h2>Accommodation <small>Where we stay</small></h2>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-header">
+        <div class="hotel-icon">🏨</div>
+        <div>
+          <h3>Airy Stay on Carnarvon</h3>
+          <p>Tsim Sha Tsui, Kowloon, Hong Kong &nbsp;·&nbsp; 3 Nights: 28–30 March 2026</p>
+        </div>
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-details">
+          <div class="hotel-detail-item">
+            <span class="icon">📍</span>
+            <div>
+              <strong>Location</strong>
+              <span>Carnarvon Road, Tsim Sha Tsui</span>
+            </div>
+          </div>
+          <div class="hotel-detail-item">
+            <span class="icon">🚶</span>
+            <div>
+              <strong>Walk to K11 Art Mall</strong>
+              <span>~1 minute walk</span>
+            </div>
+          </div>
+          <div class="hotel-detail-item">
+            <span class="icon">🌙</span>
+            <div>
+              <strong>Check-in</strong>
+              <span>28 Mar · Leave luggage if early</span>
+            </div>
+          </div>
+          <div class="hotel-detail-item">
+            <span class="icon">🚪</span>
+            <div>
+              <strong>Check-out</strong>
+              <span>30 Mar · Before airport departure</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:13px; color:var(--muted); margin-top:8px;">
+          Perfectly located in the heart of Tsim Sha Tsui — right next to K11 Art Mall, the meeting point for the Moo Temple Tour, and a short walk to the MTR station for easy access to all parts of Hong Kong.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Schedule ───────────────────────────────────────────── -->
+  <div id="schedule">
+    <div class="section-title">
+      <div class="icon">📅</div>
+      <h2>Full Itinerary <small>Day-by-day schedule with routes & tips</small></h2>
+    </div>
+
+    <!-- Day 0.5 -->
+    <div class="day-schedule">
+      <div class="day-schedule-header">
+        <div class="day-badge">
+          <span class="day-n">0.5</span>
+          PRE
+        </div>
+        <div>
+          <h3>27 March 2026 — Pre-Departure Night</h3>
+          <p>Stand by at Suvarnabhumi Airport for early morning flight</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">21:00</div>
+          <div class="timeline-content">
+            <div class="tag">Airport</div>
+            <p>Stand by at Suvarnabhumi Airport (BKK) — Proceed to check-in counter before boarding. Overnight flight departs at 01:55.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="day-schedule">
+      <div class="day-schedule-header">
+        <div class="day-badge">
+          <span class="day-n">1</span>
+          DAY
+        </div>
+        <div>
+          <h3>28 March 2026 — Arrival + Moo Temple Tour</h3>
+          <p>🛕 Temples · 🦢 Roasted Goose · 🥚 Egg Tarts · 🧋 Heytea</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">01:55</div>
+          <div class="timeline-content">
+            <div class="tag">Flight</div>
+            <p>Departure from Suvarnabhumi Airport (BKK)</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">05:55</div>
+          <div class="timeline-content">
+            <div class="tag">Arrival</div>
+            <p>Arrival at Hong Kong International Airport (HKG)</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">08:00</div>
+          <div class="timeline-content">
+            <div class="tag">Transport</div>
+            <p><strong>City Bus A21</strong> into the city — alight at Tsim Sha Tsui
+Fare: ~35 HKD (~140 THB) &nbsp;|&nbsp; Journey time: ~1 hour
+📍 <a href="https://maps.app.goo.gl/LwykPAUZJdoEH3Zc8" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">09:15</div>
+          <div class="timeline-content">
+            <div class="tag">Hotel</div>
+            <p><strong>Check-in: Airy Stay on Carnarvon</strong> — Leave luggage at hotel if room is not ready</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">09:40</div>
+          <div class="timeline-content">
+            <div class="tag">Tour</div>
+            <p><strong>Meet tour bus at K11 Art Mall</strong> (1-minute walk from hotel)
+📍 <a href="https://maps.app.goo.gl/X4LVr6Qj2LnNZeiQ6" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">10:00–16:00</div>
+          <div class="timeline-content">
+            <div class="tag gold">Moo Temple Tour</div>
+            <p><strong>Moo Hong Kong Temple Tour Program</strong>
+
+• 🛕 Kwun Yam Temple at Repulse Bay
+• 🍽 Lunch at Foodie's Choice Restaurant (included)
+• 🙏 Kwun Yam Lending Money Temple
+• 🔯 Wong Tai Sin Temple (5 Elements Temple)
+• ⭐ Optional: Underground Chamber (Tai Sui Ye, 69 statues) — +100 HKD extra
+• 🌀 Che Kung Temple (Wind Wheel)
+• 🏬 Drop-off: K11 Art Mall</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">18:00</div>
+          <div class="timeline-content">
+            <div class="tag red">Dinner</div>
+            <p><strong>Ki's Roasted Goose Restaurant</strong>  (11:00–22:30)
+
+• Roasted Goose Rice (Ki's special): HKD 73
+• Roasted Goose Leg Rice: HKD 138
+• Roasted Pork Rice: HKD 83 &nbsp;|&nbsp; BBQ Pork Rice: HKD 65 &nbsp;|&nbsp; Crispy Pork Rice: HKD 65
+📍 <a href="https://maps.app.goo.gl/fy9D5cPYkniSCd256" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">19:00</div>
+          <div class="timeline-content">
+            <div class="tag">Dessert</div>
+            <p><strong>Bakehours</strong> (08:00–21:00) or <strong>Hashtag B</strong> (08:00–22:00)
+Famous Hong Kong Egg Tarts 🥚
+📍 <a href="https://maps.app.goo.gl/pBUUxQhddUadFqE3A" target="_blank" style="color:var(--blue);">Bakehours Map</a> &nbsp;|&nbsp; <a href="https://maps.app.goo.gl/7bMQhYcM1WMV1CTF9" target="_blank" style="color:var(--blue);">Hashtag B Map</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">20:00</div>
+          <div class="timeline-content">
+            <div class="tag">Drinks</div>
+            <p><strong>Heytea</strong>  (10:00–22:00) — Inside K11 Art Mall
+📍 <a href="https://maps.app.goo.gl/3uruhX7UstojSj8Y6" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-schedule">
+      <div class="day-schedule-header">
+        <div class="day-badge">
+          <span class="day-n">2</span>
+          DAY
+        </div>
+        <div>
+          <h3>29 March 2026 — Disneyland Day ✨</h3>
+          <p>🎡 The Happiest Place in Hong Kong — Full day at the park!</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">07:00</div>
+          <div class="timeline-content">
+            <div class="tag">Breakfast</div>
+            <p><strong>Master Congee</strong> (06:30–01:00) or <strong>Red Tea Restaurant</strong>
+• Minced Beef Congee &amp; Pork Congee — highly recommended!
+• Fried Dough (Youtiao)
+📍 <a href="https://maps.app.goo.gl/dUTX63Bb4sbS1yeP6" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">08:00</div>
+          <div class="timeline-content">
+            <div class="tag">Transport</div>
+            <p><strong>Travel to Hong Kong Disneyland</strong>  (Park: 10:00–21:00)
+
+Route from Tsim Sha Tsui Station:
+1️⃣  Red Line (Tsuen Wan Line) → alight at <strong>Lai King</strong>
+2️⃣  Change to Orange Line (Tung Chung Line) → alight at <strong>Sunny Bay</strong>
+3️⃣  Change to Pink Line (Disneyland Resort Line) → <strong>Disneyland Resort Station</strong>
+
+⏱ Journey: ~40–50 min &nbsp;|&nbsp; 💰 Fare: ~20–25 HKD
+✨ The train is Disney-themed with Mickey Mouse windows &amp; handles!</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">10:00–21:00</div>
+          <div class="timeline-content">
+            <div class="tag gold">Full Day</div>
+            <p><strong>Hong Kong Disneyland 🎢🎠🎡</strong>
+
+Essential checklist:
+✔ Klook tickets pre-booked &nbsp;&nbsp;✔ Park Reservation confirmed
+✔ HK Disneyland app downloaded &nbsp;&nbsp;✔ Power Bank
+✔ Empty water bottle (free refill at Water Stations near restrooms)
+✔ Comfortable shoes (15,000–20,000+ steps!)
+✔ Umbrella / rain jacket &nbsp;&nbsp;✔ Hat &amp; sunscreen
+
+Prohibited: selfie sticks · bags &gt;56×36×23cm · packed meals · alcohol</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-schedule">
+      <div class="day-schedule-header">
+        <div class="day-badge">
+          <span class="day-n">3</span>
+          DAY
+        </div>
+        <div>
+          <h3>30 March 2026 — Kennedy Town & Fly Home</h3>
+          <p>📸 Photo walk · ☕ Cafés · 🦆 Michelin Roast Goose · ✈ Departure</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">08:00</div>
+          <div class="timeline-content">
+            <div class="tag">Breakfast</div>
+            <p><strong>Kai Kee Noodles</strong> — Famous Squid Ball Noodles  (07:30–00:00)
+📍 <a href="https://maps.app.goo.gl/HDrFQVrKhkYg3edq8" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">09:00</div>
+          <div class="timeline-content">
+            <div class="tag">Food</div>
+            <p><strong>Cheung Hing Kee Shanghai Pan-Fried Buns</strong>  (09:00–21:00)
+Famous Xiao Long Bao (Shanghai soup dumplings) 🥟
+📍 <a href="https://maps.app.goo.gl/7Xw9BbpwHfSiC8wX8" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">09:30</div>
+          <div class="timeline-content">
+            <div class="tag">Photo</div>
+            <p><strong>Hankow Road</strong> — Instagram Photo Stop 📸
+📍 <a href="https://maps.app.goo.gl/HDrFQVrKhkYg3edq8" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">10:00</div>
+          <div class="timeline-content">
+            <div class="tag">Transport</div>
+            <p><strong>Travel to Kennedy Town</strong>
+
+1️⃣  Red Line (Tsuen Wan Line) → <strong>Admiralty</strong>
+2️⃣  Change to Blue Island Line → <strong>Kennedy Town</strong> (end of line)
+3️⃣  Exit C → turn left → find stairs → walk up → 🏀 basketball court!
+
+⏱ ~20–25 min &nbsp;|&nbsp; 💰 ~11–15 HKD
+📍 <a href="https://maps.app.goo.gl/r9YrTqrj1mnU69yH8" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">11:00</div>
+          <div class="timeline-content">
+            <div class="tag">Coffee</div>
+            <p><strong>% Arabica Café ☕</strong>
+📍 <a href="https://maps.app.goo.gl/1C8N6tBmRAib6xtGA" target="_blank" style="color:var(--blue);">View on Maps</a></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">12:00</div>
+          <div class="timeline-content">
+            <div class="tag">Coffee</div>
+            <p><strong>Winston's Coffee ☕</strong>
+
+Route: Blue Island Line → <strong>Sai Ying Pun</strong> (2 stops, passing HKU station)
+Exit A1 → walk 1–2 min → Winston's Coffee at the corner of Queen's Road West</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">13:00</div>
+          <div class="timeline-content">
+            <div class="tag red">Michelin Lunch</div>
+            <p><strong>Yat Lok Restaurant</strong> — Famous Roast Goose 🦆
+Michelin Bib Gourmand for <strong>10 consecutive years!</strong>
+
+Route: Blue Island Line → <strong>Central</strong> (2 stops, passing Sheung Wan)
+Exit D2 → walk 3–5 min along Stanley Street → restaurant on the left</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:00</div>
+          <div class="timeline-content">
+            <div class="tag gold">★ Choice 1</div>
+            <p><strong>The Peak Tram — Victoria Peak 🏔</strong>
+
+Getting there (walking from Yat Lok):
+• ~900m walk · ~13–15 min · Stanley Street → Garden Road → St. John's Building (33 Garden Road) = Peak Tram Lower Terminus
+
+Tickets:
+• 🌐 Online via Klook/Trip.com — recommended! QR Code, skip the queue (~645 THB on Klook)
+• 💳 Octopus Card — tap in like the MTR (no online discount)
+• 🎫 Counter — at Lower Terminus (queues can be 1+ hour!)
+
+💡 Pro Tip: Sit on the <strong>RIGHT side</strong> of the tram for the best views!</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15:00</div>
+          <div class="timeline-content">
+            <div class="tag gold">★ Choice 2</div>
+            <p><strong>Choi Hung Estate (Rainbow Estate) 🌈</strong>
+
+Route from Yat Lok:
+1️⃣  Walk back to Central Station (Exit D2)
+2️⃣  Red Line (Tsuen Wan) → <strong>Mong Kok</strong>
+3️⃣  Change: Green Line (Kwun Tong Line) → <strong>Choi Hung</strong> (~7 stops from Mong Kok)
+4️⃣  Exit C3 → follow "Choi Hung Estate" signs
+📸 Famous colourful basketball court is on the rooftop of the car park building!</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">19:30</div>
+          <div class="timeline-content">
+            <div class="tag">Airport</div>
+            <p><strong>Travel to Hong Kong International Airport</strong>
+
+✈ Option 1 — Airport Express (Fastest):
+• MTR → Kowloon Station or HK Station → board Airport Express
+• Journey: ~22–25 min from Kowloon &nbsp;|&nbsp; Fare: ~100–110 HKD
+
+🚌 Option 2 — Bus A21 (Budget):
+• Board at Nathan Road (look for A21 sign)
+• Journey: ~60–75 min &nbsp;|&nbsp; Fare: ~33 HKD
+• Double-decker bus with luggage storage on lower deck</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">21:00</div>
+          <div class="timeline-content">
+            <div class="tag">Airport</div>
+            <p>Arrive at <strong>Hong Kong International Airport (HKG)</strong> — Check in &amp; proceed through immigration</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">23:40</div>
+          <div class="timeline-content">
+            <div class="tag red">Flight</div>
+            <p><strong>Departure from Hong Kong International Airport (HKG)</strong> ✈</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">01:40 (+1)</div>
+          <div class="timeline-content">
+            <div class="tag">Home</div>
+            <p><strong>Arrival at Suvarnabhumi Airport (BKK)</strong> 🏠 Welcome home!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Tips -->
+    <div class="section-title">
+      <div class="icon">💡</div>
+      <h2>Quick Travel Tips <small>Make the most of your Hong Kong trip</small></h2>
+    </div>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h4>🃏 Octopus Card = Life</h4>
+        <p>Get this first thing at the airport. Link it to Apple Pay via the "Octopus for Tourists" app. It works on MTR, buses, taxis, convenience stores, and even some restaurants.</p>
+      </div>
+      <div class="tip-card">
+        <h4>🚇 MTR is King</h4>
+        <p>Hong Kong's MTR is one of the world's best metro systems — fast, clean, and air-conditioned. Always check the app for the quickest route. Lines are colour-coded.</p>
+      </div>
+      <div class="tip-card">
+        <h4>🍜 Eat Like a Local</h4>
+        <p>Some of the best food is in tiny, unassuming restaurants. Don't be afraid to join a queue — if locals are waiting, it's probably worth it!</p>
+      </div>
+      <div class="tip-card">
+        <h4>☔ Weather is Wild</h4>
+        <p>March in HK can be warm and humid, but also rainy. Always carry a compact umbrella. Layer up if heading to The Peak — it can be cooler up there.</p>
+      </div>
+      <div class="tip-card">
+        <h4>📸 Best Photo Spots</h4>
+        <p>Kennedy Town basketball court (morning), Choi Hung Estate rooftop (morning/afternoon), The Peak Tram (golden hour), Tsim Sha Tsui Promenade (Victoria Harbour night view).</p>
+      </div>
+      <div class="tip-card">
+        <h4>💰 Dining Budget</h4>
+        <p>Budget ~HKD 50–80 for local breakfast (congee, dim sum), ~HKD 80–150 for lunch, and ~HKD 100–200 for dinner. Roast goose restaurants are worth every dollar!</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end .container -->
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <p><strong>Trip Hong Kong · 28–30 March 2026</strong></p>
+  <p style="margin-top:8px;">Have an amazing trip! 🇭🇰 &nbsp;·&nbsp; Safe travels ✈</p>
+</footer>
+
+</body>
+</html>
